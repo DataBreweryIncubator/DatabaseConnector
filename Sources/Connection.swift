@@ -26,8 +26,6 @@ public enum ExecutionResult<T> {
 
 /// Type that provides interface for fetching rows
 public protocol CursorProtocol: Sequence {
-	associatedtype Iterator
-
 	/// Returns number of columns the result row contains.
 	var columnCount: Int { get }
 	/// Returns an array of column names.
@@ -35,10 +33,9 @@ public protocol CursorProtocol: Sequence {
 
 	/// Fetches next row from the database connection
 	func fetchRow() -> FetchResult
+
 	/// Fetches next row and closes the connection. Returns the first value in
 	/// the fetched row.
 	func fetchScalar() -> Result<Value>
-	
-	func makeIterator() -> Iterator
 }
 

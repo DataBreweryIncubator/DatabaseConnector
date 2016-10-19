@@ -11,7 +11,7 @@ public enum FetchResult {
 	case failure(String)
 
 	/// Returns `true` if the result is empty.
-	var isEmpty: Bool {
+	public var isEmpty: Bool {
 		switch self {
 		case .empty: return true
 		default: return false
@@ -19,7 +19,7 @@ public enum FetchResult {
 	}
 
 	/// Returns `true` if the result is failure.
-	var isFailure: Bool {
+	public var isFailure: Bool {
 		switch self {
 		case .failure: return true
 		default: return false
